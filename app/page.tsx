@@ -12,16 +12,13 @@ export default async function Home() {
   // console.log(data);
 
   return (
-    <>
-      <h1>hello</h1>
-      <div className="sm:grid-cols-3 md:grid-cols-3">
-        {movies.map((movie) => (
-          <main key={movie.id}>
-            {" "}
-            <MovieCard movie={movie} />{" "}
-          </main>
-        ))}
-      </div>
-    </>
+    <div className="grid grid-cols-1 lg:grid-cols-3">
+      {movies.map((movie) => (
+        <main key={movie.id}>
+          {" "}
+          <MovieCard movie={movie} />{" "}
+        </main>
+      ))}
+    </div>
   );
 }
