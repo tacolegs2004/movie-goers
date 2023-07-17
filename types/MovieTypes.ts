@@ -9,6 +9,7 @@ export interface MovieType {
   popularity: number;
   poster_path: string;
   release_date: string;
+  slug: string;
   title: string;
   video: boolean;
   vote_average: number;
