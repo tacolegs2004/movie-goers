@@ -32,7 +32,7 @@ export async function generateStaticParams(params: {
       throw new Error("Failed to fetch movies data");
     }
 
-    const movies: MovieType[] = await res.json();
+    const movies = (await res.json()) as MovieType[];
 
     console.log(movies);
 
