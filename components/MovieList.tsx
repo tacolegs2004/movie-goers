@@ -5,7 +5,7 @@ import { use } from "react";
 export default function MovieList({
   moviePromise,
 }: {
-  moviePromise: Promise<TMovie>;
+  moviePromise: Promise<TMovie[]>;
 }) {
   const movies = use(moviePromise);
   return (
