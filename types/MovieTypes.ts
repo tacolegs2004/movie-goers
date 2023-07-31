@@ -1,23 +1,13 @@
-export interface MovieType {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  slug: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-}
+import { MovieObject } from "@/lib/movies/movie-object/movie";
+import { z } from "zod";
 
-export interface IMovies {
-  movie: MovieType;
-}
+// export type TTMovie<TData> = TData;
 
-// const exam: IMovies
+export type TMovie = {
+  page: number;
+  results: z.infer<typeof MovieObject>;
+};
+
+// interface Mov extends TMovie {}
+
+// interface TTTest<T> extends TTMovie {}

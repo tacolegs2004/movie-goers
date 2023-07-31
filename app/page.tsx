@@ -1,27 +1,15 @@
-import { MovieCard } from "@/components/MovieCard";
-import { IMovies, MovieType } from "@/types/MovieTypes";
-import Image from "next/image";
+import MovieList from "@/components/MovieList";
+import NotFound from "@/components/NotFound";
+import { TMovie } from "@/types/MovieTypes";
 
-export default async function Home() {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
-  );
-
-  if (!res.ok) {
-    console.error("Failed to fetch data");
-  }
-  const movies = (await res.json()) as IMovies[];
-
-  // console.log(data);
-
+export default function Home() {
+  const movieReq = fetch("http://localhost:3000/api/movies", {
+    cache: "no-cache",
+  }).then((res) => res.json()) as Promise<TMovie[]>;
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3">
-      {movies?.map((movie: IMovies) => (
-        <main key={movie.movie.id}>
-          {" "}
-          <MovieCard {...movie} />{" "}
-        </main>
-      ))}
-    </div>
+    <>
+      <MovieList moviePromise={movieReq} />
+      {!movieReq && <NotFound />}
+    </>
   );
 }

@@ -1,20 +1,23 @@
-import { IMovies, MovieType } from "@/types/MovieTypes";
+import type { TMovie } from "@/types/MovieTypes";
 import Image from "next/image";
 import Link from "next/link";
 
-export const MovieCard = ({ movie }: IMovies) => {
+export const MovieCard = (movie: TMovie, key: number) => {
   return (
-    <div className="flex ml-36 mt-6  px-6 py-3 lg:px-12 lg:py-6 items-center lg:ml-0 xs:ml-0">
+    <div
+      key={key}
+      className="flex ml-36 mt-6  px-6 py-3 lg:px-12 lg:py-6 items-center lg:ml-0 xs:ml-0"
+    >
       <span className="text-center bg-slate-500">
-        <Link href={`/movie/${movie.id}`}>
+        <Link href={`/movie/${movie.results.id}`}>
           <Image
-            src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
-            alt={movie.title}
+            src={"https://image.tmdb.org/t/p/w500" + movie.results.poster_path}
+            alt={movie.results.title}
             width={160}
             className="ml-24 w-auto h-auto mt-6 mr-36"
             height={120}
           />
-          <p key={movie.id}>{movie.title}</p>
+          <p key={movie.results.id}>{movie.results.title}</p>
         </Link>
       </span>
     </div>
