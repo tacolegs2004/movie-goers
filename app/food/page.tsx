@@ -1,4 +1,4 @@
-import FoodList from "@/components/FoodList";
+import FoodList from "../_components/FoodList";
 
 export default async function Food() {
   const foodReq = fetch("http://localhost:3000/api/food", {

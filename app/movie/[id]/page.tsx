@@ -1,10 +1,9 @@
-import NotFound from "@/components/NotFound";
-import { TTMovie } from "@/types/MovieTypes";
-import React from "react";
+import NotFound from "@/app/_components/NotFound";
+import { TMovie } from "@/app/api/movies/types/MovieTypes";
 
-export default async function Page(params: { id: string; movie: TTMovie[] }) {
+export default async function Page(params: { id: string; movie: TMovie[] }) {
   const selectedMovie = params?.movie?.find(
-    (movie) => movie?.id?.toString() === params.id
+    (movie) => movie.results.id.toString() === params.id
   );
 
   if (!selectedMovie) {
@@ -14,7 +13,7 @@ export default async function Page(params: { id: string; movie: TTMovie[] }) {
   console.log(selectedMovie);
   return (
     <>
-      <h1>{selectedMovie.title}</h1>
+      <h1>{selectedMovie.results.title}</h1>
     </>
   );
 }

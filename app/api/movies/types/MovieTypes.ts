@@ -1,13 +1,31 @@
-import MovieObject from "@/app/api/movies/zod/movieObj";
 import { z } from "zod";
-
-// export type TTMovie<TData> = TData;
+import MovieObject from "../zod/movieObject";
 
 export type TMovie = {
-  page: number;
-  results: z.infer<typeof MovieObject>;
-}[];
+  page?: number;
+  results: Array<{
+    adult: boolean;
+    backdrop_path: string;
+    genre_ids: Array<number>;
+    id: number;
+    original_language: string;
+    original_title: string;
+    overview: string;
+    popularity: number;
+    poster_path: string;
+    release_date: string;
+    title: string;
+    video: boolean;
+    vote_average: number;
+    vote_count: number;
+  }>;
+  total_pages?: number;
+  total_results?: number;
+};
 
-// interface Mov extends TMovie {}
-
-// interface TTTest<T> extends TTMovie {}
+type ZMovie = {
+  page?: number;
+  results: z.infer<typeof MovieObject>[];
+  total_pages?: number;
+  total_results?: number;
+};
