@@ -10,10 +10,12 @@ export default function MovieList({
   const { results } = use(moviePromise) as TMovie;
   console.log(results);
   return (
-    <div>
+    <main className="flex flex-row overflow-scroll">
       {results.map((movie) => (
-        <MovieCard results={[movie]} key={movie.id} />
+        <span key={movie.id} className="py-4">
+          <MovieCard results={[movie]} key={movie.id} />
+        </span>
       ))}
-    </div>
+    </main>
   );
 }

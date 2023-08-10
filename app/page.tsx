@@ -7,9 +7,12 @@ export default function Home() {
     cache: "no-cache",
   }).then((res) => res.json()) as Promise<TMovie>;
   return (
-    <>
-      <MovieList moviePromise={movieReq} />
+    <div className="">
+      <div className="justify-center items-center">
+        <p className="ml-12 w-full">Popular</p>
+        <MovieList moviePromise={movieReq} />
+      </div>
       {!movieReq && <NotFound />}
-    </>
+    </div>
   );
 }
