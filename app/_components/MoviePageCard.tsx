@@ -1,13 +1,12 @@
-import { ZMovie } from "@/app/api/movies/types/MovieTypes";
 import Image from "next/image";
-import Link from "next/link";
+import { ZMovie } from "../api/movies/types/MovieTypes";
 
-export const MovieCard = ({ results }: ZMovie) => {
+export default function MoviePageCard({ results }: ZMovie) {
   return (
     <>
       {results.map((movies) => (
         <div key={movies.id}>
-          <Link href={`/movie/${movies.id}`}>
+          <span>
             <Image
               src={"https://image.tmdb.org/t/p/w500" + movies.poster_path}
               alt={movies.title}
@@ -18,9 +17,9 @@ export const MovieCard = ({ results }: ZMovie) => {
             <p key={movies.id} className="pt-4 pr-12 ml-12">
               {movies.title}
             </p>
-          </Link>
+          </span>
         </div>
       ))}
     </>
   );
-};
+}

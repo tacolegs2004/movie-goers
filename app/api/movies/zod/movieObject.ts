@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const MovieObject = z.object({
-  page: z.number(),
+  page: z.number().optional(),
   results: z.array(
     z.object({
       adult: z.boolean(),
@@ -20,8 +20,8 @@ export const MovieObject = z.object({
       vote_count: z.number(),
     })
   ),
-  total_pages: z.number(),
-  total_results: z.number(),
+  total_pages: z.number().optional(),
+  total_results: z.number().optional(),
 });
 
 export default MovieObject;
