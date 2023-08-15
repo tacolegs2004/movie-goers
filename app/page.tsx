@@ -7,12 +7,12 @@ export default function Home() {
     cache: "no-cache",
   }).then((res) => res.json()) as Promise<ZMovie>;
   return (
-    <>
+    <main>
       <div className="justify-center items-center">
         <p className="ml-12 w-full -mb-6 -mt-4">Popular</p>
         <MovieList moviePromise={movieReq} />
       </div>
       {!movieReq && <NotFound />}
-    </>
+    </main>
   );
 }

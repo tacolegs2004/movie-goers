@@ -6,7 +6,7 @@ export const MovieCard = ({ results }: ZMovie) => {
   return (
     <>
       {results.map((movies) => (
-        <div key={movies.id}>
+        <span key={movies.id}>
           <Link href={`/movie/${movies.id}`}>
             <Image
               src={"https://image.tmdb.org/t/p/w500" + movies.poster_path}
@@ -19,7 +19,7 @@ export const MovieCard = ({ results }: ZMovie) => {
               {movies.title}
             </p>
           </Link>
-        </div>
+        </span>
       ))}
     </>
   );

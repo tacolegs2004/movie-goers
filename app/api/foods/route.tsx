@@ -1,8 +1,20 @@
 import { NextResponse } from "next/server";
 
-const FOODS = ["hot dogs", "hamburgers", "tacos", "french fries"];
-
 export async function GET() {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  return NextResponse.json(FOODS);
+  const res = await fetch(
+    `https://api.spoonacular.com/recipes/random?apiKey=${process.env.NEXT_APP_FOOD_API_KEY}&number=10`,
+    {
+      cache: "no-cache",
+    }
+  );
+
+  if (!res.ok) {
+    console.log("Fetching failed");
+  } else {
+    console.log("Fetching was successful!");
+  }
+
+  const foods = await res.json();
+
+  return NextResponse.json(foods);
 }
