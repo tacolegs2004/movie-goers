@@ -1,8 +1,8 @@
-import { ZMovie } from "@/app/api/movies/types/MovieTypes";
+import { TMovie } from "@/app/api/movies/types/MovieTypes";
 import Image from "next/image";
 import Link from "next/link";
 
-export const MovieCard = ({ results }: ZMovie) => {
+export const MovieCard = ({ results }: TMovie) => {
   return (
     <>
       {results.map((movies) => (

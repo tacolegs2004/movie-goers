@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { ZMovie } from "../api/movies/types/MovieTypes";
+import { TMovie } from "../api/movies/types/MovieTypes";
 
-export default function MoviePageCard({ results }: ZMovie) {
+export default function MoviePageCard({ results }: TMovie) {
   return (
     <>
       {results.map((movies) => (

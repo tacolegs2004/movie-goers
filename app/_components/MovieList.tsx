@@ -1,13 +1,13 @@
 import { use } from "react";
-import { ZMovie } from "../api/movies/types/MovieTypes";
+import { TMovie } from "../api/movies/types/MovieTypes";
 import { MovieCard } from "./MovieCard";
 
 export default function MovieList({
   moviePromise,
 }: {
-  moviePromise: Promise<ZMovie>;
+  moviePromise: Promise<TMovie>;
 }) {
-  const { results } = use(moviePromise) as ZMovie;
+  const { results } = use(moviePromise) as TMovie;
   console.log(results);
   return (
     <main className="grid grid-cols-3 md:flex md:flex-row overflow-scroll">
