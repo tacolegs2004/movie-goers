@@ -15,7 +15,7 @@ export const MovieCard = ({ results }: TMovie) => {
               className="w-min h-min mt-6 pl-4 pr-2 rounded-lg"
               height={92}
             />
-            <p key={movies.id} className="pt-4 pr-12 ml-12">
+            <p key={movies.id} className="pt-4 pr-4 mr-6 ml-12 w-36">
               {movies.title}
             </p>
           </Link>

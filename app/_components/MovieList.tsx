@@ -12,7 +12,7 @@ export default function MovieList({
   return (
     <main className="grid grid-cols-3 md:flex md:flex-row overflow-scroll">
       {results.map((movie) => (
-        <span key={movie.id} className="py-4 w-full h-full">
+        <span key={movie.id} className="pt-4 ml-4 w-max h-full">
           <MovieCard results={[movie]} key={movie.id} />
         </span>
       ))}
