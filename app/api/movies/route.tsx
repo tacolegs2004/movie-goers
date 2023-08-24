@@ -8,11 +8,7 @@ export async function GET() {
     }
   );
 
-  if (!res.ok) {
-    console.log("Fetching failed");
-  } else {
-    console.log("Fetching was successful!");
-  }
+  if (!res.ok) throw new Error("Fetching failed");
 
   const movies = await res.json();
 

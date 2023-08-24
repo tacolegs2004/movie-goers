@@ -1,5 +1,7 @@
-import NotFound from "./_components/NotFound";
-
 export default function Page() {
-  return <NotFound />;
+  return (
+    <div className="flex flex-col items-center justify-center h-screen">
+      <h2 className="text-4xl">Page Not Found 🥲</h2>
+    </div>
+  );
 }

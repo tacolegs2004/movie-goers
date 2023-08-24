@@ -12,7 +12,7 @@ export const MovieCard = ({ results }: TMovie) => {
               src={"https://image.tmdb.org/t/p/w500" + movies.poster_path}
               alt={movies.title}
               width={92}
-              className="w-min h-min mt-6 pl-4 pr-2 rounded-lg"
+              className="w-min h-min mt-6 ml-8 pr-2 rounded-lg"
               height={92}
             />
             <p key={movies.id} className="pt-4 pr-4 mr-6 ml-12 w-36">
