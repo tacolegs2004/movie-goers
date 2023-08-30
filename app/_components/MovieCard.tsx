@@ -1,4 +1,4 @@
-import { TMovie } from "@/app/api/movies/types/MovieTypes";
+import { TMovie } from "@/lib/types/MovieTypes";
 import Image from "next/image";
 import Link from "next/link";
 

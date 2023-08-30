@@ -1,5 +1,5 @@
+import { TMovie } from "@/lib/types/MovieTypes";
 import { use } from "react";
-import { TMovie } from "../api/movies/types/MovieTypes";
 import { MovieCard } from "./MovieCard";
 
 export default function MovieList({

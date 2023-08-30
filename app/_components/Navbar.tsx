@@ -3,9 +3,9 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <header>
-      <nav className="w-full">
-        <ul className="flex py-2 mb-8 flex-row bg-slate-500 lg:text-2xl text-lg">
-          <Link href="/" className="pl-12 pr-6 lg:px-52 lg:pr-48 md:pr-24">
+      <nav className="md:w-full sm:w-auto">
+        <ul className="flex py-2 mb-8 flex-row bg-slate-500 lg:text-2xl text-lg ">
+          <Link href="/" className="pl-24 pr-6 lg:px-52 lg:pr-48 md:pr-24">
             Home
           </Link>
           <Link
@@ -14,7 +14,7 @@ const Navbar = () => {
           >
             Search
           </Link>
-          <Link href="/about" className="pr-36 pl-2 md:pr-64 md:pl-6">
+          <Link href="/about" className="pr-12 pl-2  md:pl-6">
             About
           </Link>
         </ul>
