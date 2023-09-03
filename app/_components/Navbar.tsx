@@ -1,22 +1,31 @@
+"use client";
 import Link from "next/link";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleIsActive = () => {
+    setIsActive((prev) => !prev);
+  };
   return (
-    <header>
-      <nav className="md:w-full sm:w-auto">
-        <ul className="flex py-2 mb-8 flex-row bg-slate-500 lg:text-2xl text-lg ">
-          <Link href="/" className="pl-24 pr-6 lg:px-52 lg:pr-48 md:pr-24">
-            Home
-          </Link>
-          <Link
-            href="/search"
-            className="pl-48  pr-48 md:pr-64 md:pl-40 px-36 lg:pr-[340px] lg:pl-[300px]"
-          >
-            Search
-          </Link>
-          <Link href="/about" className="pr-12 pl-2  md:pl-6">
-            About
-          </Link>
+    <header className="text-xl mb-6 sticky w-screen p-2 bg-slate-600">
+      <nav>
+        <Link href="/" className="flex items-center ml-4 -mb-9">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            MovieGoers
+          </span>
+        </Link>
+        <ul className="flex flex-row justify-end gap-16 mr-16">
+          <li className="hover:bg-slate-700 p-2 rounded-lg">
+            <Link href={"/"}>Home</Link>
+          </li>
+          <li className="hover:bg-slate-700 p-2 rounded-lg">
+            <Link href={"/search"}>Search</Link>
+          </li>
+          <li className="hover:bg-slate-700 p-2 rounded-lg">
+            <Link href={"/about"}>About</Link>
+          </li>
         </ul>
       </nav>
     </header>

@@ -11,9 +11,10 @@ export default function MovieList({
 
   console.log(results);
   return (
-    <main className="grid grid-cols-3 md:flex md:flex-row overflow-scroll">
+    // grid grid-cols-3 md:flex md:flex-row overflow-scroll
+    <main className=" flex flex-row gap-3 overflow-scroll mt-4">
       {results.map((movie) => (
-        <span key={movie.id} className="pt-4 ml-4 w-fixed h-full">
+        <span key={movie.id} className="w-fixed h-full">
           <MovieCard results={[movie]} key={movie.id} />
         </span>
       ))}

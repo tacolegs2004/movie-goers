@@ -1,12 +1,10 @@
 import getMoviesById from "@/lib/getMoviesById";
 
-export default async function Page({
-  params,
-}: {
-  params: {
-    movieId: string;
-  };
-}) {
+export type TParams = {
+  movieId: string;
+};
+
+export default async function Page({ params }: { params: TParams }) {
   const results = await getMoviesById(params.movieId);
 
   console.log("results", results);
