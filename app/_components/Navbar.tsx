@@ -8,10 +8,14 @@ const Navbar = () => {
   const handleIsActive = () => {
     setIsActive((prev) => !prev);
   };
+
   return (
     <header className="text-xl mb-6 sticky w-screen p-2 bg-slate-600">
       <nav>
-        <Link href="/" className="flex items-center ml-4 -mb-9">
+        <Link
+          href="/"
+          className="flex hover:bg-blue-500 items-center ml-4 -mb-9"
+        >
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             MovieGoers
           </span>

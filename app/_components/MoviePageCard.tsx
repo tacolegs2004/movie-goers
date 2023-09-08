@@ -1,4 +1,5 @@
 import { TMovie } from "@/lib/types/MovieTypes";
+
 import Image from "next/image";
 
 export default function MoviePageCard({ results }: TMovie) {
