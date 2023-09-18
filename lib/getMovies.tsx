@@ -6,7 +6,7 @@ export const getMovies = async (): Promise<TMovie> => {
   );
 
   if (!res.ok) {
-   new Error("Fetching failed");
+    new Error("Fetching failed");
   } else {
     console.log("Fetch succeded");
   }

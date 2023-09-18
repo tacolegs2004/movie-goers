@@ -7,13 +7,11 @@ export const getMoviesById = async (movieId: string): Promise<TMovie> => {
 
   if (!res.ok) {
     new Error("Fetching failed");
-  } else {
-    console.log("Fetch succeded");
   }
 
   const data = (await res.json()) as TMovie;
 
-  console.log(data);
+  //  console.log(data);
 
   return data as TMovie;
 };

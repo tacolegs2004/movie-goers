@@ -5,15 +5,20 @@ export type TParams = {
 };
 
 export default async function Page({ params }: { params: TParams }) {
-  const results = await getMoviesById(params.movieId);
+  const movies = await getMoviesById(params.movieId);
 
-  console.log("results", results);
+  movies.results.map((movie) => {
+    console.log(movie.title);
+  });
+  console.log("movies", movies);
   return (
     <>
-      {!results && <h1>Movie Page {params.movieId}</h1>}
+      {!movies && <h1>Movie data not found</h1>}
 
-      {results.results.map((movie) => (
-        <h1>{movie.title}</h1>
+      {movies.results.map((movie) => (
+        <h1 className="flex flex-row justify-center items-center">
+          {movie.title}
+        </h1>
       ))}
     </>
   );

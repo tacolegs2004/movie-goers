@@ -14,7 +14,7 @@ const Navbar = () => {
       <nav>
         <Link
           href="/"
-          className="flex hover:bg-blue-500 items-center ml-4 -mb-9"
+          className="flex items-center ml-4 -mb-9"
         >
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             MovieGoers

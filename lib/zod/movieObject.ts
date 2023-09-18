@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { string, z } from "zod";
 
 export const MovieObject = z.object({
   page: z.number().optional(),
