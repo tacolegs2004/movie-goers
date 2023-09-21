@@ -7,7 +7,7 @@ export default function Home() {
   if (!movieReq) {
     console.log("failed to fetch");
   }
-  
+
   return (
     <main>
       <div className="justify-center items-center">

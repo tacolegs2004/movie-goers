@@ -1,25 +1,28 @@
 import getMoviesById from "@/lib/getMoviesById";
+import { TMovie } from "@/lib/types/MovieTypes";
 
-export type TParams = {
+export interface TParams extends TMovie {
   movieId: string;
-};
+}
 
 export default async function Page({ params }: { params: TParams }) {
-  const movies = await getMoviesById(params.movieId);
+  const { results } = await getMoviesById(params.movieId);
 
-  movies.results.map((movie) => {
-    console.log(movie.title);
+  console.log(typeof results, "type");
+
+  results.map((movie) => {
+    console.log(movie);
   });
-  console.log("movies", movies);
+
+
+
+  //  console.log("movies", movies);
   return (
     <>
-      {!movies && <h1>Movie data not found</h1>}
-
-      {movies.results.map((movie) => (
-        <h1 className="flex flex-row justify-center items-center">
-          {movie.title}
-        </h1>
-      ))}
+    
+      {results.map((movie) => {
+        return <h1 key={movie.id}>{movie.title}</h1>;
+      })}
     </>
   );
 }
