@@ -1,28 +1,17 @@
+import MovieListId from "@/app/_components/MovieListId";
 import getMoviesById from "@/lib/getMoviesById";
-import { TMovie } from "@/lib/types/MovieTypes";
 
-export interface TParams extends TMovie {
+export interface TParams {
   movieId: string;
 }
 
-export default async function Page({ params }: { params: TParams }) {
-  const { results } = await getMoviesById(params.movieId);
+export default function Page({ params }: { params: TParams }) {
+  const movies = getMoviesById(params.movieId);
 
-  console.log(typeof results, "type");
-
-  results.map((movie) => {
-    console.log(movie);
-  });
-
-
-
-  //  console.log("movies", movies);
+  console.log("movies", movies);
   return (
     <>
-    
-      {results.map((movie) => {
-        return <h1 key={movie.id}>{movie.title}</h1>;
-      })}
+      <MovieListId moviePromise={movies} />
     </>
   );
 }

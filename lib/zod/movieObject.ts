@@ -1,4 +1,4 @@
-import { string, z } from "zod";
+import { z } from "zod";
 
 export const MovieObject = z.object({
   page: z.number().optional(),
@@ -18,7 +18,7 @@ export const MovieObject = z.object({
       video: z.boolean(),
       vote_average: z.number(),
       vote_count: z.number(),
-    })
+    }),
   ),
   total_pages: z.number().optional(),
   total_results: z.number().optional(),
