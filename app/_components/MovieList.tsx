@@ -1,4 +1,4 @@
-import { TMovie } from "@/lib/types/MovieTypes";
+import { ZMovie } from "@/lib/types/MovieTypes";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense, use } from "react";
@@ -6,9 +6,9 @@ import { Suspense, use } from "react";
 export default function MovieList({
   moviePromise,
 }: {
-  moviePromise: Promise<TMovie>;
+  moviePromise: Promise<ZMovie>;
 }) {
-  const { results } = use(moviePromise);
+  const { results } = use(moviePromise) as ZMovie;
 
   console.log(results);
   return (
