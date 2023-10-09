@@ -10,7 +10,7 @@ export default function MovieList({
 }) {
   const { results } = use(moviePromise) as ZMovie;
 
-  console.log(results);
+  // console.log(results);
   return (
     <main className="grid grid-cols-3 items-center justify-center pr-8 pt-4 lg:flex lg:overflow-scroll sm:gap-3">
       <Suspense fallback={<h1>Loading...</h1>}>
