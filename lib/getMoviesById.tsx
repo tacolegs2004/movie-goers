@@ -10,7 +10,7 @@ export const getMoviesById = async (movieId: string) => {
   }
 
   const data = await res.json();
-  //  console.log(data);
+  console.log(data);
 
   return data as TMovie;
 };

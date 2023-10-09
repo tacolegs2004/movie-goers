@@ -3,12 +3,6 @@ import Link from "next/link";
 // import { useState } from "react";
 
 const Navbar = () => {
-  // const [isActive, setIsActive] = useState(false);
-
-  // const handleIsActive = () => {
-  //   setIsActive((prev) => !prev);
-  // };
-
   return (
     <>
       <header className="text-lg mb-6 sticky w-screen p-2 bg-slate-600">

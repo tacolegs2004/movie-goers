@@ -1,24 +1,33 @@
 import { TMovie } from "@/lib/types/MovieTypes";
-import { use } from "react";
-import { MovieCard } from "./MovieCard";
+import Image from "next/image";
 
-export default function MovieListId({
-  moviePromise,
+export default async function MovieListId({
+  params,
 }: {
-  moviePromise: Promise<TMovie>;
+  params: {
+    movieId: string;
+  };
 }) {
-  const { results } = use(moviePromise);
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.NEXT_APP_API_KEY}`,
+  );
 
-  results.map((movie) => console.log(movie.title));
+  if (!res.ok) {
+    new Error("Fetching failed");
+  }
 
-  console.log(results);
+  const movie = (await res.json()) as TMovie;
+
   return (
-    <main className="">
-      {results.map((movie) => (
-        <span key={movie.id} className="w-full h-full">
-          <MovieCard results={[movie]} key={movie.id} />
-        <span>
-      ))}
-    </main>
+    <div className="flex flex-col justify-center items-center">
+      <Image
+        src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
+        alt={movie.title}
+        width={150}
+        className="w-max h-max mt-6 ml-6 pr-2 mb-8 rounded-lg"
+        height={150}
+      />
+      <h1>{movie.title}</h1>
+    </div>
   );
 }

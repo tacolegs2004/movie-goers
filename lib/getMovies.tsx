@@ -11,7 +11,7 @@ export const getMovies = async (): Promise<TMovie> => {
     console.log("Fetch succeded");
   }
 
-  const data = (await res.json()) as TMovie;
+  const data = await res.json();
 
   // console.log(data);
 
