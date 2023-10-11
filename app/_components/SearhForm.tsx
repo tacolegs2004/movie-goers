@@ -1,20 +1,9 @@
 "use client";
 
-import getMovies from "@/lib/getMovies";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-
-type Inputs = {
-  input: string;
-  id: number;
-};
 
 export default function SearhForm() {
   const [searchVal, setSearchVal] = useState("");
-  const { register, handleSubmit } = useForm();
-
-  const movies = getMovies();
-  movies.then((movie) => handleSubmit(movie.results.map(m)));
 
   // setSearchVal(movies)
 
