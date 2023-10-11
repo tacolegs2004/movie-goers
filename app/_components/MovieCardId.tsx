@@ -20,7 +20,7 @@ export default async function MovieCardId({
 
   return (
     <div>
-      <section className="container flex flex-col justify-center w-2/5 lg:w-[24%] lg:p-4 p-2 items-center ml-[32%] lg:ml-8 my-4 -mr-8 border-gray-600 border-2">
+      <section className="container flex flex-col justify-center items-center w-64 mr-12 ml-8 lg:w-[24%] lg:p-4 p-2 lg:ml-8 my-4 border-gray-600 border-2">
         <Image
           src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
           alt={movie.title}
@@ -33,8 +33,9 @@ export default async function MovieCardId({
           {movie.overview}
         </blockquote>
         <span>Original Language: {movie.original_language}</span>
-        <span className="mt-4">{movie.vote_average.toFixed()}/10</span>
+        <span className="mt-4">Rating: {movie.vote_average.toFixed()}/10</span>
       </section>
+      <section></section>
     </div>
   );
 }

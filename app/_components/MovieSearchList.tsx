@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense, use } from "react";
 
-export default function MovieList({
+export default function MovieSearchList({
   moviePromise,
 }: {
   moviePromise: Promise<ZMovie>;
@@ -12,17 +12,17 @@ export default function MovieList({
 
   // console.log(results);
   return (
-    <main className="grid grid-cols-3 items-center justify-center pr-8 pt-4 lg:flex lg:overflow-scroll sm:gap-3">
+    <main className="grid grid-cols-3 items-center justify-center md:ml-16">
       <Suspense fallback={<h1>Loading...</h1>}>
         {results.map((movie) => (
-          <span key={movie.id} className="w-full h-full">
+          <span key={movie.id}>
             <span key={movie.id}>
               <Link href={`/movie/${movie.id}`}>
                 <Image
                   src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
                   alt={movie.title}
-                  width={92}
-                  className="w-max h-max mt-6 ml-6 pr-2 rounded-lg"
+                  width={108}
+                  className="w-8/12 h-10/12 lg:w-48 lg:h-64  mt-6 ml-6 pr-2 rounded-lg"
                   height={92}
                 />
                 <p key={movie.id} className="pt-4 pr-4 mr-6 ml-12 w-36">
