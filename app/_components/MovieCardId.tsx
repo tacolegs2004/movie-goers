@@ -1,4 +1,4 @@
-import { TMovie } from "@/lib/types/MovieTypes";
+import { IMovie } from "@/lib/types/MovieTypes";
 import Image from "next/image";
 
 export default async function MovieCardId({
@@ -16,26 +16,26 @@ export default async function MovieCardId({
     new Error("Fetching failed");
   }
 
-  const movie = (await res.json()) as TMovie;
+  const movie = (await res.json()) as IMovie;
 
   return (
-    <div>
-      <section className="container flex flex-col justify-center items-center w-64 mr-12 ml-8 lg:w-[24%] lg:p-4 p-2 lg:ml-8 my-4 border-gray-600 border-2">
+    <div className="flex justify-center items-center">
+      <section className="container flex flex-col p-8 justify-center items-center lg:w-screen lg:h-screen mr-12 ml-12 my-4 mt-48">
         <Image
           src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
           alt={movie.title}
-          width={120}
-          className="mt-6 ml-8 pr-2 mb-8"
+          width={140}
+          className=" w-[80%] h-full mt-24 ml-8 pr-2 mb-16 lg:-mt-48"
           height={120}
         />
         <h1>{movie.title}</h1>
-        <blockquote className="mt-4 pl-4 pt-2 pr-2 pb-4 font-mono italic text-slate-600 lg:text-sm text-ellipsis tracking-wide">
-          {movie.overview}
-        </blockquote>
         <span>Original Language: {movie.original_language}</span>
         <span className="mt-4">Rating: {movie.vote_average.toFixed()}/10</span>
+        <blockquote className="mt-4 py-4 px-8 font-mono italic text-slate-600 text-ellipsis tracking-wide">
+          {movie.overview}
+        </blockquote>
       </section>
-      <section></section>
+      {/* <section></section> */}
     </div>
   );
 }

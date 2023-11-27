@@ -11,6 +11,9 @@ export default function Home() {
   return (
     <main>
       <div className="justify-center items-center">
+        <div className="ml-4 mt-4">
+          <h1>Popular</h1>
+        </div>
         <MovieList moviePromise={movieReq} />
       </div>
     </main>
