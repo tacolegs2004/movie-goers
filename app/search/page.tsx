@@ -1,4 +1,4 @@
-import getMovies from "@/lib/getMovies";
+import getMovies from "@/lib/getPopularMovies";
 import { Suspense } from "react";
 import MovieSearchList from "../_components/MovieSearchList";
 import SearchBar from "../_components/SearchBar";
@@ -10,12 +10,12 @@ export default async function Page() {
     <>
       <SearchBar />
 
-      <ClientComponent />
+      <ClientMovieComponent />
     </>
   );
 }
 
-const ClientComponent = () => {
+const ClientMovieComponent = () => {
   const movieReq = getMovies();
 
   return (
