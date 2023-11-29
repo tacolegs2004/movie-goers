@@ -12,8 +12,8 @@ const Navbar = () => {
     },
   ];
   return (
-    <nav className="flex flex-row justify-between items-center bg-gray-100 h-16">
-      <div className="flex flex-row justify-between items-center">
+    <nav className="flex flex-row justify-between items-center bg-gray-100 h-20 sticky z-50 top-0 inset-x-0 lg:self-stretch">
+      <header className="flex flex-row justify-between items-center relative">
         <Link
           href="/"
           className="text-2xl font-bold ml-4 hover:font-extrabold hover:text-3xl transition-all"
@@ -32,7 +32,7 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-      </div>
+      </header>
     </nav>
   );
 };
