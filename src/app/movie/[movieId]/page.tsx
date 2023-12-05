@@ -1,4 +1,4 @@
-import MovieCardId from "@/app/_components/MovieCardId";
+import MovieCardId from "@/src/app/_components/MovieCardId";
 
 export default async function Page({
   params,

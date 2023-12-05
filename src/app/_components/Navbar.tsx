@@ -5,14 +5,19 @@ const Navbar = () => {
     { name: "Home", route: "/", id: 0 },
     { name: "Search", route: "/search", id: 1 },
     {
+      name: "Login",
+      route: "/login",
+      id: 2,
+    },
+    {
       name: "Github",
       route: "https://github.com/tacolegs2004/movie-goers",
-      id: 2,
+      id: 3,
       target: "_blank",
     },
   ];
   return (
-    <nav className="flex flex-row justify-between items-center bg-gray-100 h-20 sticky z-50 top-0 inset-x-0 lg:self-stretch">
+    <nav className="flex flex-row justify-between items-center bg-gray-100 h-[68px] sticky z-50 top-0 inset-x-0 lg:self-stretch">
       <header className="flex flex-row justify-between items-center relative">
         <Link
           href="/"

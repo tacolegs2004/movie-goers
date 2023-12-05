@@ -1,4 +1,4 @@
-import { TPopularMovieObject } from "./types/MovieTypes";
+import { TMovie } from "./types/MovieTypes";
 
 export const getMoviesById = async (movieId: string) => {
   const res = await fetch(
@@ -12,7 +12,7 @@ export const getMoviesById = async (movieId: string) => {
   const data = await res.json();
   console.log(data);
 
-  return data as TPopularMovieObject;
+  return data as TMovie;
 };
 
 export default getMoviesById;

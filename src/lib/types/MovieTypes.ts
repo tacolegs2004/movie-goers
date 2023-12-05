@@ -1,32 +1,13 @@
-export interface IMovie {
-  page: number;
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: Array<number>;
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-  total_pages: number;
-  total_results: number;
-}
 export type TMovie = {
   page: number;
-  results: IMovie[];
+  results: TMovieResult[];
   total_pages: number;
   total_results: number;
 };
 
-export type TPopularMovieObject = {
+export type TSearchedMovieObject = {
   page: number;
-  results: IMovie[];
+  results: TMovieResult[];
   total_pages: number;
   total_results: number;
 };
@@ -34,7 +15,7 @@ export type TPopularMovieObject = {
 export interface TNowPlayingMovieObject {
   dates: Dates;
   page: number;
-  results: Result[];
+  results: TMovieResult[];
   total_pages: number;
   total_results: number;
 }
@@ -44,7 +25,7 @@ export interface Dates {
   minimum: string;
 }
 
-export interface Result {
+export interface TMovieResult {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
