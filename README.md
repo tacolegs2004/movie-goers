@@ -22,10 +22,6 @@ Create an account on [themoviedb.org](https://developer.themoviedb.org/docs) and
 
 Visit `localhost:3000` in your browser to start exploring movies.
 
-## Contributing
-
-We welcome contributions! Please see our contributing guide for details.
-
 ## License
 
 This project is licensed under the terms of the MIT license.

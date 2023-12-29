@@ -10,12 +10,14 @@ export default function PopularMovieList({
   const { results } = use(popularMoviePromise) as TMovie;
 
   return (
-    <main className="grid grid-cols-3 lg:flex lg:flex-row lg:overflow-scroll gap-12 sm:gap-3">
-      <Suspense fallback={<h1>Loading...</h1>}>
-        {results.map((movie) => (
-          <MovieListCard key={movie.id} results={movie} />
-        ))}
-      </Suspense>
-    </main>
+    <>
+      <main className="grid grid-cols-3 lg:flex lg:flex-row lg:overflow-scroll gap-12 sm:gap-3">
+        <Suspense fallback={<h1>Loading...</h1>}>
+          {results.map((movie) => (
+            <MovieListCard key={movie.id} results={movie} />
+          ))}
+        </Suspense>
+      </main>
+    </>
   );
 }

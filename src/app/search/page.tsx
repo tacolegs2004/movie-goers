@@ -1,35 +1,33 @@
 import getSearchedMovies from "@/src/lib/getSearchedMovies";
+import { TQuery } from "../../lib/types/MovieTypes";
 import MovieSearchList from "../_components/MovieSearchList";
 import SearchBar from "../_components/SearchBar";
 
 export default async function Page() {
-  const searchParams = new URLSearchParams();
-  const query = searchParams.get("query") || ("" as string | undefined);
-  //    ^?
+  const res = await fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_APP_API_KEY}`,
+  );
 
-  const test = query.match(/^[a-zA-Z0-9 ]+$/) || query === "";
+  const data = (await res.json()) as TQuery;
 
-  const searchMovieReq = getSearchedMovies({ query });
+  const movies = await getSearchedMovies({ query: data });
 
-  if (!test) {
-    return (
-      <div className="flex flex-col justify-center items-center">
-        <h1 className="text-3xl font-bold text-center">
-          Please enter a valid search query
-        </h1>
-      </div>
-    );
+  if (!movies) {
+    return <div>Loading...</div>;
   }
 
   return (
     <>
-      <SearchBar />
-
-      <MovieSearchList query={query} moviePromise={searchMovieReq} />
+      <SearchBar>
+        {movies.results.map((movie) => (
+          <>
+            <MovieSearchList
+              key={movie.id}
+              moviePromise={Promise.resolve(movies)}
+            />
+          </>
+        ))}
+      </SearchBar>
     </>
   );
 }
-
-// const ClientMovieComponent = () => {
-
-// };

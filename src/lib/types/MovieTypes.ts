@@ -12,20 +12,18 @@ export type TSearchedMovieObject = {
   total_results: number;
 };
 
-export interface TNowPlayingMovieObject {
-  dates: Dates;
+export type TNowPlayingMovieObject = {
+  dates: {
+    maximum: string;
+    minimum: string;
+  };
   page: number;
   results: TMovieResult[];
   total_pages: number;
   total_results: number;
-}
+};
 
-export interface Dates {
-  maximum: string;
-  minimum: string;
-}
-
-export interface TMovieResult {
+export type TMovieResult = {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -40,4 +38,8 @@ export interface TMovieResult {
   video: boolean;
   vote_average: number;
   vote_count: number;
-}
+};
+
+export type TQuery = {
+  query: TSearchedMovieObject[];
+};

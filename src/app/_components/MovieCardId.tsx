@@ -1,4 +1,4 @@
-import { IMovie } from "@/lib/types/MovieTypes";
+import { TMovieResult } from "@/src/lib/types/MovieTypes";
 import Image from "next/image";
 
 export default async function MovieCardId({
@@ -16,16 +16,16 @@ export default async function MovieCardId({
     new Error("Fetching failed");
   }
 
-  const movie = (await res.json()) as IMovie;
+  const movie = (await res.json()) as TMovieResult;
 
   return (
     <div className="flex justify-center items-center">
-      <section className="container flex flex-col p-8 justify-center items-center lg:w-screen lg:h-screen mr-12 ml-12 my-4 mt-48">
+      <section className="container flex flex-col  justify-center items-center lg:w-screen lg:h-screen mr-12 ml-12 my-4 ">
         <Image
           src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
           alt={movie.title}
-          width={200}
-          className=" w-[60%] h-full -mt-48 ml-8 pr-2 mb-4 lg:-mt-48"
+          width={150}
+          className=" w-[60%] h-full mt-24 ml-8 pr-2 mb-4 lg:w-[40%] lg:h-[90%] lg:mt-0 lg:ml-0 lg:pr-0"
           height={120}
         />
         <h1>{movie.title}</h1>

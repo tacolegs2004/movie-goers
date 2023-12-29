@@ -12,21 +12,24 @@ export default function Home() {
   }
 
   return (
-    <main>
-      <div className="justify-center items-center">
-        <div className="ml-4 mt-4 flex flex-col justify-center items-center font-bold text-xl">
-          <h1>Now Playing</h1>
+    <>
+      {/* < UserButton afterSignOutUrl="/" /> */}
+      <main>
+        <div className="justify-center items-center">
+          <div className="ml-4 mt-8 pb-4 flex flex-col justify-center items-center font-bold text-xl">
+            <h1>Now Playing</h1>
+          </div>
+          <NowPlayingMovieList
+            nowPlayingMovieListPromise={nowPlayingMovieListReq}
+          />
+          <br />
+          <div className="ml-4 pb-4 flex flex-col justify-center items-center font-bold text-xl">
+            <h1>Popular</h1>
+          </div>
+          <PopularMovieList popularMoviePromise={popularMovieListReq} />
+          <br />
         </div>
-        <NowPlayingMovieList
-          nowPlayingMovieListPromise={nowPlayingMovieListReq}
-        />
-        <br />
-        <div className="ml-4 flex flex-col justify-center items-center font-bold text-xl">
-          <h1>Popular</h1>
-        </div>
-        <PopularMovieList popularMoviePromise={popularMovieListReq} />
-        <br />
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
