@@ -1,26 +1,17 @@
-import { TMovieResult } from "@/src/lib/types/MovieTypes";
+import getMovieCardId from "@/src/lib/getMovieCardId";
 import Image from "next/image";
 
-export default async function MovieCardId({
-  params,
-}: {
+type TParams = {
   params: {
     movieId: string;
   };
-}) {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.NEXT_APP_API_KEY}`,
-  );
+};
 
-  if (!res.ok) {
-    new Error("Fetching failed");
-  }
-
-  const movie = (await res.json()) as TMovieResult;
-
+export default async function MovieCardId(params: TParams) {
+  const movie = await getMovieCardId(params);
   return (
-    <div className="flex justify-center items-center">
-      <section className="container flex flex-col  justify-center items-center lg:w-screen lg:h-screen mr-12 ml-12 my-4 ">
+    <div className="flex justify-center items-center lg:mt-24">
+      <section className="container flex flex-col  justify-center items-center lg:w-screen lg:h-screen mr-12 ml-12 my-4">
         <Image
           src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
           alt={movie.title}

@@ -10,6 +10,8 @@ export default async function Page() {
 
   const data = (await res.json()) as TQuery;
 
+  if (!data) [console.log("data not found")];
+
   const movies = await getSearchedMovies({ query: data });
 
   if (!movies) {

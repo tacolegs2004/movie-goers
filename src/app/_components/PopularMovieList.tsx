@@ -1,6 +1,7 @@
 import { TMovie } from "@/src/lib/types/MovieTypes";
 import { Suspense, use } from "react";
 import MovieListCard from "./MovieListCard";
+import MovieListWrapper from "./MovieListWrapper";
 
 export default function PopularMovieList({
   popularMoviePromise,
@@ -11,13 +12,13 @@ export default function PopularMovieList({
 
   return (
     <>
-      <main className="grid grid-cols-3 lg:flex lg:flex-row lg:overflow-scroll gap-12 sm:gap-3">
+      <MovieListWrapper>
         <Suspense fallback={<h1>Loading...</h1>}>
           {results.map((movie) => (
             <MovieListCard key={movie.id} results={movie} />
           ))}
         </Suspense>
-      </main>
+      </MovieListWrapper>
     </>
   );
 }
