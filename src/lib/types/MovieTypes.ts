@@ -12,6 +12,11 @@ export interface TSearchedMovieObject {
   total_results: number;
 }
 
+
+export interface TRest {
+  data: TNowPlayingMovieObject[];
+}
+
 export interface TNowPlayingMovieObject {
   dates: {
     maximum: string;

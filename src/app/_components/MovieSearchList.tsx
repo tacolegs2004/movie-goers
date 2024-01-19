@@ -18,7 +18,7 @@ export default function MovieSearchList({
         ))}
         {results.length === 0 && (
           <div className="text-center text-2xl">
-            No results found for {query?.query.map((q) => `"${q}"`)}{" "}
+            No results found for {results.map(r => r.title)}
           </div>
         )}
       </div>

@@ -11,7 +11,7 @@ export default async function MovieCardId(params: TParams) {
   const movie = await getMovieCardId(params);
   return (
     <div className="flex justify-center items-center lg:mt-24">
-      <section className="container flex flex-col  justify-center items-center lg:w-screen lg:h-screen mr-12 ml-12 my-4">
+      <section className="container flex flex-col justify-center items-center lg:w-screen lg:h-screen mr-12 ml-12 my-4">
         <Image
           src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
           alt={movie.title}

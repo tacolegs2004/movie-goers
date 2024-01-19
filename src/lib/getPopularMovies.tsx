@@ -1,4 +1,4 @@
-import { TMovie } from "./types/MovieTypes";
+import { type TMovie } from "./types/MovieTypes";
 
 export const getMovies = async (): Promise<TMovie> => {
   const res = await fetch(

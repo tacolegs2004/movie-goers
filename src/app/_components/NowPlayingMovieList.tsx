@@ -10,14 +10,15 @@ export default function NowPlayingMovieList({
   nowPlayingMovieListPromise: Promise<TNowPlayingMovieObject>;
 }) {
   const { results } = use(nowPlayingMovieListPromise) as TNowPlayingMovieObject;
-
   return (
     <MovieListWrapper>
       <Suspense fallback={<h1>Loading...</h1>}>
         {results.map((movie) => (
           <MovieListCard key={movie.id} results={movie} />
         ))}
-        <ArrowBigRightIcon />
+        <span className="">
+          <ArrowBigRightIcon />
+        </span>
       </Suspense>
     </MovieListWrapper>
   );
@@ -42,7 +43,6 @@ function ArrowBigRightIcon() {
       >
         <path
           fillRule="evenodd"
-          // eslint-disable-next-line max-len
           d="M10.707 3.293a1 1 0 010 1.414L7.414 9H17a1 1 0 110 2H7.414l3.293 3.293a1 1 0 01-1.414 1.414l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 0z"
           clipRule="evenodd"
         />

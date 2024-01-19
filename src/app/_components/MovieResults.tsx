@@ -7,23 +7,23 @@ type TMovieTitle = {
   title: string;
 };
 
-const MovieResults = () => {
+export default function MovieResults() {
   const [query] = React.useState("");
-  const [movieResults, setMovieResults] = React.useState<TMovieTitle>();
+  const [movieResults, setMovieResults] = React.useState<string>();
   const [isLoading, setIsLoading] = React.useState(false);
   const [setError] = React.useState<
     React.Dispatch<React.SetStateAction<unknown>>
   >(() => null);
 
   const handleMovies = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsLoading(true);
+    if (!movieResults) return null
     try {
       const res = await fetch(
         `https://api.themoviedb.org/3/movie?query=${movieResults?.title}&api_key=${process.env.NEXT_APP_API_KEY}`,
       );
 
       const data = (await res.json()) as TMovie;
-      setMovieResults(e.target.value as unknown as TMovieTitle);
+      setMovieResults(e.target.value);
       return data;
     } catch (error) {
       if (error instanceof Error) {
@@ -55,7 +55,7 @@ const MovieResults = () => {
         <input
           type="text"
           placeholder="Search for a movie"
-          onChange={(e) => handleMovies(e)}
+          onChange={(e) => handleMovies(e.target.value)}
         />
         <button onClick={() => handleSearch()}>Search</button>
       </form>
@@ -69,4 +69,3 @@ const MovieResults = () => {
   );
 };
 
-export default MovieResults;

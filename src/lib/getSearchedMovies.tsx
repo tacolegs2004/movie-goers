@@ -1,5 +1,6 @@
 import { TMovie, TQuery } from "./types/MovieTypes";
 
+
 export default async function getSearchedMovies({
   query,
 }: {
@@ -13,7 +14,7 @@ export default async function getSearchedMovies({
     throw new Error("There was an error fetching the data");
   }
 
-  const movies = await data.json();
+  const movies = await data.json() as TMovie;
 
   return movies as TMovie;
 }

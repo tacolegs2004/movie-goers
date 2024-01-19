@@ -12,13 +12,13 @@ export default function PopularMovieList({
 
   return (
     <>
-      <MovieListWrapper>
-        <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <MovieListWrapper>
           {results.map((movie) => (
             <MovieListCard key={movie.id} results={movie} />
           ))}
-        </Suspense>
-      </MovieListWrapper>
+        </MovieListWrapper>
+      </Suspense>
     </>
   );
 }

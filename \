@@ -8,7 +8,6 @@ type TNavbar = {
   id: Key;
   target?: HTMLAttributeAnchorTarget | undefined;
 };
-
 export default function Navbar() {
   const navItems: TNavbar[] = [
     { name: "Home", route: "/", id: 0 },
@@ -26,7 +25,6 @@ export default function Navbar() {
       target: "_blank",
     },
   ];
-
 
   return (
     <header className="flex justify-between bg-slate-400 h-[68px] sticky w-screen ">
