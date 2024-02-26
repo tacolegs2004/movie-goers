@@ -1,13 +1,11 @@
-import { TQuery, TSearchedMovieObject } from "@/src/lib/types/MovieTypes";
+import { TSearchedMovieObject } from "@/src/lib/types/MovieTypes";
 import { use } from "react";
 import MovieListCard from "./MovieListCard";
 
 export default function MovieSearchList({
   moviePromise,
-  query,
 }: {
   moviePromise: Promise<TSearchedMovieObject>;
-  query?: TQuery;
 }) {
   const { results } = use(moviePromise) as TSearchedMovieObject;
   return (

@@ -1,8 +1,5 @@
 import React from "react";
 
-type TTest = {
-  name: string;
-};
 export default function MovieListWrapper({
   children,
 }: {
