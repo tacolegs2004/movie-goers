@@ -1,8 +1,8 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "./_components/Navbar";
 import "./globals.css";
+import Navbar from "./_components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +21,9 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           <main>
-            <Navbar />
+            <section className="w-screen">
+              <Navbar />
+            </section>
             <div className="flex-grow flex-1">{children}</div>
           </main>
         </body>

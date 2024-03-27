@@ -1,12 +1,12 @@
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
-import { HTMLAttributeAnchorTarget, Key } from "react";
+import { HTMLAttributeAnchorTarget } from "react";
 
 type TNavbar = {
   name: string;
   route: string;
-  id: Key;
-  target?: HTMLAttributeAnchorTarget | undefined;
+  id: number;
+  target?: HTMLAttributeAnchorTarget;
 };
 
 export default function Navbar() {
@@ -29,33 +29,40 @@ export default function Navbar() {
 
 
   return (
-    <header className="flex justify-between bg-slate-400 h-[68px] sticky w-screen ">
+    <header className="mb-10 flex h-[68px] w-screen justify-between bg-slate-400 md:w-full">
       <Link
         href="/"
-        className="text-2xl font-bold ml-4 mt-4 hover:font-extrabold hover:text-3xl transition-all"
+        className="ml-4 mt-4 text-2xl font-bold transition-all hover:text-3xl hover:font-extrabold"
       >
         MovieGoers
       </Link>
-      <div className="flex flex-row justify-center items-center mr-48 gap-8 sm:ml-24">
-        {navItems.map((item) => (
-          <Link
-            href={item.route}
-            key={item.id}
-            className="text-2xl font-bold ml-4 hover:font-extrabold hover:text-3xl transition-all"
-            target={item.target ? "_blank" : ""}
-            aria-label={item.name}
-          >
-            {item.name}
-          </Link>
-        ))}
+
+      <div className="flex flex-row items-center justify-center gap-8 sm:ml-24">
+        <ul className="mt-4 rounded-lg p-4 font-medium rtl:space-x-reverse dark:border-gray-700 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 md:dark:bg-gray-900">
+
+          {navItems.map((item) => (
+            <Link
+              href={item.route}
+              key={item.id}
+              className="rounded px-3 py-2 text-xl font-semibold text-black transition-all hover:text-2xl dark:text-white md:visible md:bg-transparent md:p-0"
+              target={item.target ? "_blank" : ""}
+              aria-label={item.name}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </ul>
+
         <div
-          className="-mr-24"
+          className=""
           id="profile-pic"
           aria-label="Your profile picture"
         >
           <UserButton afterSignOutUrl="/" />
         </div>
+
       </div>
     </header>
   );
 }
+

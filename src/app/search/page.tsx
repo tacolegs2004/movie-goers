@@ -1,35 +1,40 @@
-import getSearchedMovies from "@/src/lib/getSearchedMovies";
-import { TQuery } from "@/src/lib/types/MovieTypes";
+import { TMovieResult } from "@/src/lib/types/MovieTypes";
 import React, { Suspense } from "react";
-import MovieSearchList from "../_components/MovieSearchList";
+import Search from "../_components/Search";
+import { type TMovie } from "@/src/lib/types/MovieTypes";
+import getPopularMovies from "@/src/lib/getPopularMovies";
+import getSearchedMovies from "@/src/lib/getSearchedMovies";
+import MovieListCard from "../_components/MovieListCard";
 
-const SearchPage: React.FC<{ query: TQuery }> = async (props) => {
-  const movies = await getSearchedMovies(props);
-  if (!movies) return null;
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
+}) {
+  const query = searchParams?.query || "";
+  // const currentPage = Number(searchParams?.page) || 1;
+  const movieListReq = await getPopularMovies() as TMovie
+  const searchMovies = await getSearchedMovies({ query: query || movieListReq });
 
-  // function handleSearch(idx: number) {
-  //  const results = movies.results.find((res) => res.id === idx ? idx : null)
-  //  console.log(results)
-  // }
+  if (!searchMovies) return (
+    <div>Movies not found...</div>
+  );
 
   return (
-    <>
-      {/** <SearchBar /> */}
+    <div className="flex flex-col items-center justify-center">
+      <Search query={query} />
       <Suspense fallback={<h1>Loading results...</h1>}>
-        {movies.results.map((movie) => (
-          <>
-            <MovieSearchList
-              key={movie.id}
-              moviePromise={Promise.resolve(movies)}
-            />
-          </>
-        ))}
+        <div className="grid w-[80vw] grid-cols-3 gap-24">
+          {searchMovies ? searchMovies.results.map((movie: TMovieResult) => (
+            <MovieListCard results={movie} key={movie.id} />
+          )) : movieListReq.results.map((movie: TMovieResult) => (
+              <MovieListCard results={movie} key={movie.id} />
+            ))}
+        </div>
       </Suspense>
-      <h1 className="bg-red-400">
-        hi
-      </h1>
-    </>
+    </div>
   );
 }
-
-export default SearchPage

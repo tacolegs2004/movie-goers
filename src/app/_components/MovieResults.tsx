@@ -3,10 +3,6 @@
 import { TMovie } from "@/src/lib/types/MovieTypes";
 import React from "react";
 
-type TMovieTitle = {
-  title: string;
-};
-
 export default function MovieResults() {
   const [query] = React.useState("");
   const [movieResults, setMovieResults] = React.useState<string>();
@@ -19,7 +15,7 @@ export default function MovieResults() {
     if (!movieResults) return null
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/movie?query=${movieResults?.title}&api_key=${process.env.NEXT_APP_API_KEY}`,
+        `https://api.themoviedb.org/3/movie?query=${movieResults}&api_key=${process.env.NEXT_APP_API_KEY}`,
       );
 
       const data = (await res.json()) as TMovie;
@@ -41,7 +37,7 @@ export default function MovieResults() {
         `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_APP_API_KEY}&query=${query}`,
       );
       const data = (await res.json()) as TMovie;
-      setMovieResults({ title: query } as unknown as TMovieTitle);
+
       return data;
     } catch (error) {
       setError(error);
@@ -55,16 +51,11 @@ export default function MovieResults() {
         <input
           type="text"
           placeholder="Search for a movie"
-          onChange={(e) => handleMovies(e.target.value)}
+          onChange={(e) => handleMovies("hest")}
         />
         <button onClick={() => handleSearch()}>Search</button>
       </form>
       {isLoading && <div>Loading...</div>}
-      {movieResults && (
-        <div>
-          <h2>{movieResults.title}</h2>
-        </div>
-      )}
     </>
   );
 };
