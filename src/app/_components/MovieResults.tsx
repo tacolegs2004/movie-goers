@@ -51,7 +51,7 @@ export default function MovieResults() {
         <input
           type="text"
           placeholder="Search for a movie"
-          onChange={() => handleMovies("test")}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleMovies(e)}
         />
         <button onClick={() => handleSearch()}>Search</button>
       </form>
