@@ -51,7 +51,7 @@ export default function MovieResults() {
         <input
           type="text"
           placeholder="Search for a movie"
-          onChange={(e) => handleMovies("hest")}
+          onChange={(e) => handleMovies(e.target.value)}
         />
         <button onClick={() => handleSearch()}>Search</button>
       </form>
