@@ -14,10 +14,9 @@ export default async function Page({
     page?: string;
   };
 }) {
-  const query = searchParams?.query || "";
-  // const currentPage = Number(searchParams?.page) || 1;
   const movieListReq = await getPopularMovies() as TMovie
-  const searchMovies = await getSearchedMovies({ query: query || movieListReq });
+  const query = searchParams?.query || ""
+  const searchMovies = await getSearchedMovies({ query: query });
 
   if (!searchMovies) return (
     <div>Movies not found...</div>
