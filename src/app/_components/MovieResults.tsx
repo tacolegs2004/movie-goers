@@ -57,6 +57,6 @@ export default function MovieResults() {
       </form>
       {isLoading && <div>Loading...</div>}
     </>
-  );
-};
+  )
+}
 
