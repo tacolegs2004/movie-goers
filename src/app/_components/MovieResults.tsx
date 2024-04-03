@@ -1,5 +1,4 @@
 "use client";
-
 import { TMovie } from "@/src/lib/types/MovieTypes";
 import React from "react";
 
