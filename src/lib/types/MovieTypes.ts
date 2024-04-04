@@ -5,27 +5,11 @@ export interface TMovie {
   total_results: number;
 }
 
-export interface TSearchedMovieObject {
-  page: number;
-  results: TMovieResult[];
-  total_pages: number;
-  total_results: number;
-}
-
-
-export interface TRest {
-  data: TNowPlayingMovieObject[];
-}
-
-export interface TNowPlayingMovieObject {
+export interface TNowPlayingMovieObject extends TMovie {
   dates: {
     maximum: string;
     minimum: string;
   };
-  page: number;
-  results: TMovieResult[];
-  total_pages: number;
-  total_results: number;
 }
 
 export interface TMovieResult {
@@ -45,6 +29,3 @@ export interface TMovieResult {
   vote_count: number;
 }
 
-export interface TQuery {
-  query: TSearchedMovieObject[];
-}

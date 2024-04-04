@@ -1,6 +1,6 @@
 import { type TMovie } from "./types/MovieTypes";
 
-export const getMovies = async (): Promise<TMovie> => {
+export default async function getPopularMovies(): Promise<TMovie> {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_APP_API_KEY}`,
   );
@@ -11,11 +11,10 @@ export const getMovies = async (): Promise<TMovie> => {
     console.log("Fetch succeded");
   }
 
-  const data = await res.json();
+  const data = await res.json() as TMovie;
 
   console.log(data);
 
-  return data as TMovie;
-};
+  return data;
+}
 
-export default getMovies;

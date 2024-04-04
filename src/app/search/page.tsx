@@ -30,8 +30,8 @@ export default async function Page({
           {searchMovies ? searchMovies.results.map((movie: TMovieResult) => (
             <MovieListCard results={movie} key={movie.id} />
           )) : movieListReq.results.map((movie: TMovieResult) => (
-              <MovieListCard results={movie} key={movie.id} />
-            ))}
+            <MovieListCard results={movie} key={movie.id} />
+          ))}
         </div>
       </Suspense>
     </div>

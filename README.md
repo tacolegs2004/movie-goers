@@ -12,13 +12,12 @@ MovieGoers is a website for discovering new movies, rating and reviewing them, a
 
 ## Installation
 
-1. Clone the repository
-2. Install dependencies with `npm install`
-3. Start the server with `npm start`
+1. Create an account on [themoviedb.org](https://developer.themoviedb.org/docs) and then retrieve your API key from the docs.
+2. Clone the repository.
+3. Install dependencies with your package manager of choice.
+4. Start the server.
 
 ## Usage
-
-Create an account on [themoviedb.org](https://developer.themoviedb.org/docs) and then retrieve your API key from the docs.
 
 Visit `localhost:3000` in your browser to start exploring movies.
 

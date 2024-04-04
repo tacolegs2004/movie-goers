@@ -1,4 +1,4 @@
-import { getMoviesNowPlaying } from "@/src/lib/getMoviesNowPlaying";
+import getMoviesNowPlaying from "@/src/lib/getMoviesNowPlaying";
 import getPopularMovies from "@/src/lib/getPopularMovies";
 import NowPlayingMovieList from "./_components/NowPlayingMovieList";
 import PopularMovieList from "./_components/PopularMovieList";

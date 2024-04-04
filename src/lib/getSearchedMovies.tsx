@@ -13,5 +13,5 @@ export default async function getSearchedMovies(props: {
 
   const movies = (await data.json()) as TMovie;
 
-  return movies as TMovie;
+  return movies;
 }
