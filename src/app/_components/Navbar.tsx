@@ -29,7 +29,7 @@ export default function Navbar() {
 
 
   return (
-    <header className="mb-10 flex h-[68px] w-screen justify-between bg-slate-400 md:w-full">
+    <header className="mb-10 flex h-[68px] w-full justify-between bg-slate-400">
       <Link
         href="/"
         className="ml-4 mt-4 text-2xl font-bold transition-all hover:text-3xl hover:font-extrabold"
@@ -54,7 +54,7 @@ export default function Navbar() {
         </ul>
 
         <div
-          className=""
+          className="mr-12"
           id="profile-pic"
           aria-label="Your profile picture"
         >

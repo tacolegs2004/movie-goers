@@ -15,15 +15,15 @@ export default function Home() {
     <>
       {/* < UserButton afterSignOutUrl="/" /> */}
       <main>
-        <div className="justify-center items-center">
-          <div className="ml-4 pb-4 flex flex-col justify-center items-center font-bold text-xl">
+        <div className="items-center justify-center">
+          <div className="ml-4 flex flex-col items-center justify-center pb-4 text-xl font-bold">
             <h1>Now Playing</h1>
           </div>
           <NowPlayingMovieList
             nowPlayingMovieListPromise={nowPlayingMovieListReq}
           />
           <br />
-          <div className="ml-4 pb-4 flex flex-col justify-center items-center font-bold text-xl">
+          <div className="ml-4 flex flex-col items-center justify-center pb-4 text-xl font-bold">
             <h1>Popular</h1>
           </div>
           <PopularMovieList popularMoviePromise={popularMovieListReq} />
