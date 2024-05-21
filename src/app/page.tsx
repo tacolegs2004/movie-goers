@@ -16,7 +16,7 @@ export default function Home() {
       {/* < UserButton afterSignOutUrl="/" /> */}
       <main>
         <div className="items-center justify-center">
-          <div className="ml-4 flex flex-col items-center justify-center pb-4 text-xl font-bold">
+          <div className="ml-4 mt-4 flex flex-col items-center justify-center pb-4 text-xl font-bold">
             <h1>Now Playing</h1>
           </div>
           <NowPlayingMovieList

@@ -13,9 +13,7 @@ export default async function getMoviesNowPlaying(): Promise<TNowPlayingMovieObj
     console.log("Fetch succeded");
   }
 
-  console.log(data);
-
-  const res = await data.json() as TNowPlayingMovieObject;
+  const res = (await data.json()) as TNowPlayingMovieObject;
 
   return res;
 }

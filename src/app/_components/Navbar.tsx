@@ -27,19 +27,17 @@ export default function Navbar() {
     },
   ];
 
-
   return (
-    <header className="mb-10 flex h-[68px] w-full justify-between bg-slate-400">
+    <header className="p-8 flex h-[68px] w-full justify-between bg-slate-400">
       <Link
         href="/"
-        className="ml-4 mt-4 text-2xl font-bold transition-all hover:text-3xl hover:font-extrabold"
+        className="ml-4 -mt-4 text-2xl font-bold transition-all hover:text-3xl hover:font-extrabold dark:text-white dark:hover:text-black"
       >
         MovieGoers
       </Link>
 
-      <div className="flex flex-row items-center justify-center gap-8 sm:ml-24">
+      <div className="flex flex-row items-center justify-center gap-8 -pr-8 -mr-10 sm:ml-24">
         <ul className="mt-4 rounded-lg p-4 font-medium rtl:space-x-reverse dark:border-gray-700 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 md:dark:bg-gray-900">
-
           {navItems.map((item) => (
             <Link
               href={item.route}
@@ -60,9 +58,7 @@ export default function Navbar() {
         >
           <UserButton afterSignOutUrl="/" />
         </div>
-
       </div>
     </header>
   );
 }
-

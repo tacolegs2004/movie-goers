@@ -9,10 +9,7 @@ export default async function getMoviesById(movieId: string) {
     new Error("Fetching failed");
   }
 
-  const data = await res.json() as TMovie;
-
-  console.log(data);
+  const data = (await res.json()) as TMovie;
 
   return data;
 }
-

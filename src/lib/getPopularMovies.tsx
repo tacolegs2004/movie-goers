@@ -11,10 +11,7 @@ export default async function getPopularMovies(): Promise<TMovie> {
     console.log("Fetch succeded");
   }
 
-  const data = await res.json() as TMovie;
-
-  console.log(data);
+  const data = (await res.json()) as TMovie;
 
   return data;
 }
-
