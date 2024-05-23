@@ -1,4 +1,4 @@
-import { UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { HTMLAttributeAnchorTarget } from "react";
 
@@ -56,7 +56,12 @@ export default function Navbar() {
           id="profile-pic"
           aria-label="Your profile picture"
         >
-          <UserButton afterSignOutUrl="/" />
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
         </div>
       </div>
     </header>
